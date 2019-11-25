@@ -1,0 +1,43 @@
+{
+	"common": {
+		"back_to_login": "Volver al inicio",
+		"cancel": "Cancelar",
+		"edit": "Editar",
+		"email": "Correo Electrónico",
+		"forgot_password": "¿Olvidó su contraseña?",
+		"language": "Lenguaje",
+		"loading": "Cargando",
+		"login": "Ingresar",
+		"logout": "Cerrar Sesión",
+		"name": "Nombre",
+		"no_account": "¿No tiene una cuenta? ",
+		"password": "Contraseña",
+		"password_confirmation": "Confirmar Contraseña",
+		"profile": "Perfil",
+		"register": "Registrarse",
+		"save": "Guardar",
+		"view": "Ver"
+	},
+	"form": {
+		"validation": {
+			"at_least_n_characters": "Por lo menos {n} caracteres",
+			"invalid_email": "Correo electrónico no válido",
+			"required": "El campo {fieldName} es requerido"
+		}
+	},
+	"profile": {
+		"edit": "Editar Perfil",
+		"logged_out": "Ha cerrado sesión.",
+		"password": {
+			"choose_new": "Escriba una nueva contraseña",
+			"email_sent": "Se ha enviado un correo electrónico con las instrucciones para restablecer tu contraseña a la dirección que ingresaste.",
+			"enter_email": "Por favor ingresa tu dirección de correo electrónico. Recibirás un enlace para crear una nueva contraseña vía correo electrónico.",
+			"get_password": "Enviar contraseña",
+			"reset": "Restablecer contraseña"
+		},
+		"register": "Regístrese",
+		"updated_successfully": "Su perfil se ha actualizado correctamente.",
+		"welcome_back": "¡Bienvenido de nuevo!",
+		"your_profile": "Tu Perfil"
+	}
+}

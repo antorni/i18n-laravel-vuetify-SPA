@@ -7,7 +7,7 @@
         </transition>
       </v-flex>
       <v-flex lg3 sm4 xs12 mt-12>
-        <sidemenu :threshold="67" :offset="90" :items="items"></sidemenu>
+        <sidemenu :threshold="67" :offset="90" :items="items">{{ $t('') }}</sidemenu>
       </v-flex>
     </v-layout>
   </v-container>
@@ -29,11 +29,15 @@ export default {
     this.navigation()
   },
 
+  beforeUpdate() {
+    this.navigation()
+  },
+
   methods: {
     navigation() {
       this.items = [
-        { title: 'View', icon: 'visibility', to: { name: 'profile' } },
-        { title: 'Edit', icon: 'edit', to: { name: 'profile-edit' } },
+        { title: this.$t('common.view'), icon: 'visibility', to: { name: 'profile' } },
+        { title: this.$t('common.edit'), icon: 'edit', to: { name: 'profile-edit' } },
       ]
     }
   }

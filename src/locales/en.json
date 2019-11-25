@@ -1,0 +1,43 @@
+{
+	"common": {
+		"back_to_login": "Back to login",
+		"cancel": "Cancel",
+		"edit": "Edit",
+		"email": "Email",
+		"forgot_password": "Forgot password?",
+		"language": "Language",
+		"loading": "Loading",
+		"login": "Login",
+		"logout": "Logout",
+		"name": "Name",
+		"no_account": "Don't have an account? ",
+		"password": "Password",
+		"password_confirmation": "Password Confirmation",
+		"profile": "Profile",
+		"register": "Register",
+		"save": "Save",
+		"view": "View"
+	},
+	"form": {
+		"validation": {
+			"at_least_n_characters": "At least {n} characters",
+			"invalid_email": "Invalid email",
+			"required": "The {fieldName} field is required"
+		}
+	},
+	"profile": {
+		"edit": "Edit Profile",
+		"logged_out": "You are logged out.",
+		"password": {
+			"choose_new": "Choose a new password below",
+			"email_sent": "An email with password reset instructions has been sent to your email address.",
+			"enter_email": "Please enter your email address. You will receive a link to create a new password via email.",
+			"get_password": "Get password",
+			"reset": "Password reset"
+		},
+		"register": "Register",
+		"updated_successfully": "Your profile successfully updated.",
+		"welcome_back": "Welcome back!",
+		"your_profile": "Your Profile"
+	}
+}

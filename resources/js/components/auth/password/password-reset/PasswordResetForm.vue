@@ -9,7 +9,7 @@
       :error-messages="errors.password"
       :disabled="loading"
       :rules="[rules.required('password')]"
-      hint="At least 6 characters"
+      :hint="$tc('form.validation.at_least_n_characters', 6)"
       @input="clearErrors('password')"
     ></v-text-field>
 
@@ -49,10 +49,7 @@ export default {
   data: () => ({
     passwordHidden: true,
 
-    labels: {
-      password: 'New Password',
-      password_confirmation: 'Confirm New Password'
-    },
+    labels: {},
 
     form: {
       token: null,
@@ -63,6 +60,7 @@ export default {
   }),
 
   created() {
+    this.setLabels()
     this.form.email = this.$route.query.email
     this.form.token = this.$route.params.token
   },
@@ -84,6 +82,11 @@ export default {
           })
       }
     },
+
+    setLabels() {
+      this.labels.password = this.$t('common.password')
+      this.labels.password_confirmation = this.$t('common.password_confirmation')
+    }
   }
 }
 </script>

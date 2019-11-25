@@ -5,7 +5,7 @@
       v-model="form.email"
       type="email"
       :error-messages="errors.email"
-      :rules="[rules.required('email')]"
+      :rules="rules.emailRules('email')"
       :disabled="loading"
     ></v-text-field>
 
@@ -19,7 +19,7 @@
         color="grey darken-2"
         exact
       >
-        Back to login
+        {{ $t('common.back_to_login') }}
       </v-btn>
 
       <v-btn
@@ -29,7 +29,7 @@
         color="primary"
         class="ml-4"
       >
-        Get password
+        {{ $t('profile.password.get_password') }}
       </v-btn>
     </v-layout>
   </v-form>
@@ -44,12 +44,15 @@ export default {
   mixins: [Form],
 
   data: () => ({
+    labels: {},
+
     form: {
       email: null
     }
   }),
 
   created() {
+    this.setLabels()
     this.form.email = this.$route.query.email || null
   },
 
@@ -59,7 +62,7 @@ export default {
         this.loading = true
         axios.post(api.path('password.forgot'), this.form)
           .then((res) => {
-            this.$toast.info('An email with password reset instructions has been sent to your email address.')
+            this.$toast.info(this.$t('profile.password.email_sent'))
             this.$emit('success')
           })
           .catch(err => {
@@ -69,6 +72,10 @@ export default {
             this.loading = false
           })
       }
+    },
+
+    setLabels() {
+      this.labels.email = this.$t('common.email')
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="mb-4 primary--text headline">Edit Profile</h2>
+    <h2 class="mb-4 primary--text headline">{{ $t('profile.edit') }}</h2>
     <profile-edit-form @success="success"></profile-edit-form>
   </div>
 </template>

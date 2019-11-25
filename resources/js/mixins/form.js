@@ -29,7 +29,10 @@ export default {
       }
     }
 
-    this.rules.required = (field) => ((v) => !!v || 'The ' + (this.labels && this.labels[field] && this.labels[field].toLowerCase() + ' ') + 'field is required')
+    this.rules.required = (field) => ((v) => !!v || this.fieldRequired(field))
+    
+    const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    this.rules.emailRules = (field) => [(v) => !!v || this.fieldRequired(field), v => emailPattern.test(v) || this.$t('form.validation.invalid_email')]
   },
 
   methods: {
@@ -59,6 +62,10 @@ export default {
           this.errors[key] = []
         }
       }
+    },
+
+    fieldRequired(field){
+      return( this.$tc('form.validation.required', '', {fieldName: (this.labels && this.labels[field] && this.labels[field].toLowerCase())}) )
     }
   }
 }

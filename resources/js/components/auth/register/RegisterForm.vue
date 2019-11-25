@@ -14,7 +14,7 @@
       v-model="form.email"
       type="email"
       :error-messages="errors.email"
-      :rules="[rules.required('email')]"
+      :rules="rules.emailRules('email')"
       :disabled="loading"
       @input="clearErrors('email')"
     ></v-text-field>
@@ -28,7 +28,7 @@
       :error-messages="errors.password"
       :disabled="loading"
       :rules="[rules.required('password')]"
-      hint="At least 6 characters"
+      :hint="$tc('form.validation.at_least_n_characters', 6)"
       @input="clearErrors('password')"
     ></v-text-field>
 
@@ -52,7 +52,7 @@
         color="grey darken-2"
         exact
       >
-        Back to login
+        {{ $t('common.back_to_login') }}
       </v-btn>
 
       <v-btn
@@ -62,7 +62,7 @@
         color="primary"
         class="ml-4"
       >
-        Register
+        {{ $t('common.register') }}
       </v-btn>
     </v-layout>
   </v-form>
@@ -79,6 +79,8 @@ export default {
   data: () => ({
     passwordHidden: true,
 
+    labels: {},
+
     form: {
       name: null,
       email: null,
@@ -86,6 +88,10 @@ export default {
       password_confirmation: null
     }
   }),
+
+  created() {
+    this.setLabels()
+  },
 
   methods: {
     submit() {
@@ -104,6 +110,13 @@ export default {
           })
       }
     },
+
+    setLabels() {
+      this.labels.email = this.$t('common.email')
+      this.labels.name = this.$t('common.name')
+      this.labels.password = this.$t('common.password')
+      this.labels.password_confirmation = this.$t('common.password_confirmation')
+    }
   }
 }
 </script>

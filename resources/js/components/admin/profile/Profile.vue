@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 class="mb-4 primary--text headline">Your Profile</h2>
+    <h2 class="mb-4 primary--text headline">{{ $t('profile.your_profile') }}</h2>
 
     <v-card>
       <v-card-text>
         <v-text-field
-          label="Name"
+          :label="$t('common.name')"
           v-model="user.name"
           filled
           readonly
@@ -14,7 +14,7 @@
         ></v-text-field>
 
         <v-text-field
-          label="Email"
+          :label="$t('common.email')"
           v-model="user.email"
           filled
           readonly

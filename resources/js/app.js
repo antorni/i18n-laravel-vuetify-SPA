@@ -7,7 +7,10 @@ import App from '$comp/App'
 import '~/plugins/index'
 import vuetify from '~/plugins/vuetify'
 
+import i18n from '../../src/i18n'
+
 export const app = new Vue({
+  i18n,
   router,
   store,
   vuetify,

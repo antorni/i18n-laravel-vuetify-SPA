@@ -5,7 +5,7 @@
       v-model="form.email"
       type="email"
       :error-messages="errors.email"
-      :rules="[rules.required('email')]"
+      :rules="rules.emailRules('email')"
       :disabled="loading"
       prepend-icon="person"
       @input="clearErrors('email')"
@@ -33,7 +33,7 @@
         :to="{ name: 'forgot', query: {email: form.email} }"
         color="grey darken-2"
       >
-        Forgot password?
+        {{ $t('common.forgot_password') }}
       </v-btn>
 
       <v-btn
@@ -43,7 +43,7 @@
         color="primary"
         class="ml-4"
       >
-        Login
+        {{ $t('common.login')}}
       </v-btn>
     </v-layout>
   </v-form>
@@ -60,6 +60,8 @@ export default {
   data: () => ({
     passwordHidden: true,
 
+    labels: {},
+
     form: {
       email: null,
       password: null
@@ -68,6 +70,7 @@ export default {
 
   created() {
     this.form.email = this.$route.query.email || null
+    this.setLabels()
   },
 
   methods: {
@@ -77,7 +80,7 @@ export default {
 
         axios.post(api.path('login'), this.form)
           .then(res => {
-            this.$toast.success('Welcome back!')
+            this.$toast.success(this.$t('profile.welcome_back'))
             this.$emit('success', res.data)
           })
           .catch(err => {
@@ -88,6 +91,11 @@ export default {
           })
       }
     },
+
+    setLabels() {
+      this.labels.email = this.$t('common.email')
+      this.labels.password = this.$t('common.password')
+    }
   }
 }
 </script>

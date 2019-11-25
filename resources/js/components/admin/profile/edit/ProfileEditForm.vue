@@ -16,14 +16,14 @@
           v-model="form.email"
           type="email"
           :error-messages="errors.email"
-          :rules="[rules.required('email')]"
+          :rules="rules.emailRules('email')"
           :disabled="loading"
           @input="clearErrors('email')"
         ></v-text-field>
       </v-card-text>
     </v-card>
 
-    <h3 class="headline mb-4 mt-12">Password</h3>
+    <h3 class="headline mb-4 mt-12">{{ $t('common.password') }}</h3>
 
     <v-card>
       <v-card-text>
@@ -35,7 +35,7 @@
           :type="passwordHidden ? 'password' : 'text'"
           :error-messages="errors.password"
           :disabled="loading"
-          hint="At least 6 characters"
+          :hint="$tc('form.validation.at_least_n_characters', 6)"
           autocomplete="new-password"
           @input="clearErrors('password')"
         ></v-text-field>
@@ -62,7 +62,7 @@
         color="grey darken-2"
         exact
       >
-        Cancel
+        {{ $t('common.cancel') }}
       </v-btn>
 
       <v-btn
@@ -72,7 +72,7 @@
         color="primary"
         class="ml-4"
       >
-        Save
+        {{ $t('common.save') }}
       </v-btn>
     </v-layout>
   </v-form>
@@ -90,10 +90,7 @@ export default {
   data: () => ({
     passwordHidden: true,
 
-    label: {
-      password: 'New Password',
-      password_confirmation: 'Confirm New Password',
-    },
+    labels: {},
 
     form: {
       name: null,
@@ -108,7 +105,13 @@ export default {
   }),
 
   mounted() {
+    this.setLabels()
     this.form = Object.assign(this.form, this.auth)
+  },
+
+  beforeUpdate() {
+    this.setLabels()
+    this.$refs.form.validate()
   },
 
   methods: {
@@ -118,7 +121,7 @@ export default {
 
         axios.put(api.path('profile'), this.form)
           .then(res => {
-            this.$toast.success('Your profile successfully updated.')
+            this.$toast.success(this.$t('profile.updated_successfully'))
             this.$emit('success', res.data)
           })
           .catch(err => {
@@ -128,6 +131,13 @@ export default {
             this.loading = false
           })
       }
+    },
+    
+    setLabels() {
+      this.labels.email = this.$t('common.email')
+      this.labels.name = this.$t('common.name')
+      this.labels.password = this.$t('common.password')
+      this.labels.password_confirmation = this.$t('common.password_confirmation')
     }
   }
 }

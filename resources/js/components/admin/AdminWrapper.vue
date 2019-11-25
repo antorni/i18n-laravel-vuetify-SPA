@@ -1,6 +1,6 @@
 <template>
   <div class="fill-height">
-    <app-nav :mini="mini" @nav-toggle="navToggle"></app-nav>
+    <app-nav :mini="mini" @nav-toggle="navToggle">{{ $t('') }}</app-nav>
     <top-menu @nav-toggle="navToggle"></top-menu>
 
     <v-content>

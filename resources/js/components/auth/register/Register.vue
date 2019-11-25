@@ -2,7 +2,7 @@
   <v-flex sm8 md6 lg4>
     <v-card>
       <v-toolbar dark color="primary" flat>
-        <v-toolbar-title>Register</v-toolbar-title>
+        <v-toolbar-title>{{ $t('common.register' )}}</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
         <register-form @success="success"></register-form>

@@ -1,6 +1,7 @@
 <template>
-  <v-navigation-drawer fixed app :permanent="$vuetify.breakpoint.mdAndUp" light :mini-variant.sync="$vuetify.breakpoint.mdAndUp && mini" :clipped="$vuetify.breakpoint.mdAndUp" :value="mini" :width="300">
+  <v-navigation-drawer fixed app :permanent="$vuetify.breakpoint.mdAndUp" :mini-variant.sync="$vuetify.breakpoint.mdAndUp && mini" :clipped="$vuetify.breakpoint.mdAndUp" :value="mini" :width="300">
     <v-list class="py-0">
+      
       <v-list-item>
         <v-list-item-icon v-show="$vuetify.breakpoint.mdAndUp && mini">
           <v-btn small icon @click.native.stop="navToggle" class="mx-0">
@@ -73,17 +74,29 @@
         </v-list-item>
       </template>
     </v-list>
+    <v-list class="py-0">
+      <v-list-item>
+        <v-list-item-content>
+          <localizer></localizer>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import localizer from '../../localizer/Localizer.vue'
 
 export default {
   data: () => ({
       items: [],
       name: null
   }),
+
+  components: {
+    localizer
+  },
 
   props: ['mini'],
 
@@ -104,6 +117,10 @@ export default {
     this.navigation()
   },
 
+  beforeUpdate() {
+    this.navigation()
+  },
+
   methods: {
     navToggle() {
       this.$emit('nav-toggle')
@@ -112,17 +129,17 @@ export default {
     async logout() {
       await this.$store.dispatch('auth/logout')
 
-      this.$toast.info('You are logged out.')
+      this.$toast.info(this.$t('profile.logged_out'))
       this.$router.push({ name: 'login' })
     },
 
     navigation() {
       this.items = [
         [
-          { title: 'Profile', icon: 'person', to: {name: 'profile'}, exact: false }
+          { title: this.$t('common.profile'), icon: 'person', to: {name: 'profile'}, exact: false }
         ],
         [
-          { title: 'Logout', icon: 'power_settings_new', action: this.logout }
+          { title: this.$t('common.logout'), icon: 'power_settings_new', action: this.logout }
         ]
       ]
     }

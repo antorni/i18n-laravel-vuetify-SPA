@@ -1,5 +1,5 @@
-# Laravel Vuetify SPA Starter
-Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios, Vuetify 2
+# Laravel Vuetify SPA Starter with i18n
+Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios, Vuetify 2, vue-i18n
 
 ## Included
 * [Laravel 6.0](https://laravel.com/docs/6.0)
@@ -9,6 +9,7 @@ Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios
 * [Axios](https://github.com/mzabriskie/axios)
 * [Authentication with JWT Token](https://github.com/tymondesigns/jwt-auth)
 * [Vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
+* [vue-i18n](https://kazupon.github.io/vue-i18n)
 
 ## Installation:
 * Clone the repo
@@ -19,7 +20,6 @@ Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios
 * Run `php artisan jwt:secret`
 * Run `php artisan migrate`
 * Run `npm install`
-* Make sure `storage/framework/cache`, `storage/framework/sessions`, `storage/framework/views` directories exist. Run `mkdir -p storage/framework/{sessions,views,cache}`
 
 ## Usage
 * Run `npm run watch` for live reloading using BrowserSync
