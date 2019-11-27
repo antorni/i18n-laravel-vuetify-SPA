@@ -36,8 +36,16 @@
 			"reset": "Restablecer contraseña"
 		},
 		"register": "Regístrese",
+		"registered": "¡Has sido registrado correctamente!",
 		"updated_successfully": "Su perfil se ha actualizado correctamente.",
 		"welcome_back": "¡Bienvenido de nuevo!",
 		"your_profile": "Tu Perfil"
+	},
+	"token": {
+		"blacklisted": "El token está en la lista negra",
+		"error": "Ocurrió un error.",
+		"expired": "El token ha expirado",
+		"expired_no_refresh": "El token ha expirado y no puede ser renovado",
+		"something_went_wrong": "Algo ha salido mal."
 	}
 }

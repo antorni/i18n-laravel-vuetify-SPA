@@ -77,7 +77,6 @@
     <v-list class="py-0">
       <v-list-item>
         <v-list-item-content>
-          <localizer></localizer>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -86,17 +85,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import localizer from '../../localizer/Localizer.vue'
 
 export default {
   data: () => ({
       items: [],
       name: null
   }),
-
-  components: {
-    localizer
-  },
 
   props: ['mini'],
 

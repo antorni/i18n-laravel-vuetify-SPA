@@ -2,6 +2,11 @@
   <div class="sidemenu" v-scroll="onScroll" :style="styles">
     <v-card>
       <v-list class="py-0" dense>
+        <v-list-item>
+          <v-list-item-content class="mt-4">
+            <localizer></localizer>
+          </v-list-item-content>
+        </v-list-item>
         <template v-for="(item, index) in items">
           <v-divider v-if="index" :key="index"></v-divider>
           <v-list-item :key="item.title" @click="item.action ? item.action(item) : null" :to="item.to" ripple exact>
@@ -20,7 +25,20 @@
 </template>
 
 <script>
+import localizer from '$comp/localizer/Localizer.vue'
+
+
 export default {
+  data: () => ({
+    currentOffset: 0,
+    position: 'relative',
+    top: 0
+  }),
+
+  components: {
+    localizer
+  },
+  
   props: {
     threshold: {
       type: [Number, String],
@@ -34,12 +52,6 @@ export default {
       required: true
     },
   },
-
-  data: () => ({
-    currentOffset: 0,
-    position: 'relative',
-    top: 0
-  }),
 
   computed: {
     styles () {

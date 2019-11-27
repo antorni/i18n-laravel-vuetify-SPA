@@ -36,8 +36,16 @@
 			"reset": "Password reset"
 		},
 		"register": "Register",
+		"registered": "You have been successfully registered!",
 		"updated_successfully": "Your profile successfully updated.",
 		"welcome_back": "Welcome back!",
 		"your_profile": "Your Profile"
+	},
+	"token": {
+		"blacklisted": "The token has been blacklisted",
+		"error": "Error occurred.",
+		"expired": "Token has expired",
+		"expired_no_refresh": "Token has expired and can no longer be refreshed",
+		"something_went_wrong": "Something went wrong."
 	}
 }

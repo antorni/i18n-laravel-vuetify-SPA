@@ -4,15 +4,19 @@
     :label="$t('common.language')"
     v-model="$i18n.locale"
     outlined
-    prepend-icon="translate"
+    append-icon="translate"
   ></v-select>
 </template>
 
 <script>
 export default {
   name: 'localizer',
-  data () {
-    return { langs: ['es', 'en'] }
-  }
+  data: () => ({
+      langs: []
+  }),
+
+  mounted() {
+    this.langs = Object.keys(this.$i18n.messages)
+  } 
 }
 </script>

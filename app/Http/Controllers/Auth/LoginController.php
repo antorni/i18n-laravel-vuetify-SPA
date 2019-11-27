@@ -42,7 +42,7 @@ class LoginController extends Controller
         $credentials = request(['email', 'password']);
 
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['message' => 'Invalid login credential.'], 401);
+            return response()->json(['message' => __('auth.failed')], 401);
         }
 
         $user = $request->user();
@@ -71,6 +71,6 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => __('auth.logged_out')]);
     }
 }

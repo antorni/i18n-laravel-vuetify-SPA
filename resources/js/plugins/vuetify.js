@@ -20,17 +20,23 @@ export default new Vuetify({
     locales: { es, en },
     current: 'es',
   },
+
   theme: {
-  	themes: {
-	  ligth: {
-	    primary: '#4caf50',
-	    secondary: '#2196f3',
-	    accent: '#e91e63',
-	    error: '#f44336',
-	    warning: '#ff9800',
-	    info: '#673ab7',
-	    success: '#8bc34a'
-	  }
-	}
+  	dark: true
+  },
+
+  theme: {
+    themes: {
+      dark: {
+        primary: '#4682B4',
+        secondary: '#424242',
+        accent: '#82B1FF',
+        error: '#FF5252',
+        info: '#2196F3',
+        success: '#4CAF50',
+        warning: '#FFC107',
+      },
+    },
+    dark: true,
   },
 })

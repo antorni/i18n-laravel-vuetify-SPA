@@ -15,6 +15,7 @@ Starter SPA built with Laravel 6.0, JWT Auth, Vue 2, Vue Router 3, Vuex 3, Axios
 * Clone the repo
 * Copy `.env.example` to `.env`
 * Configure `.env`
+* Make sure `storage/framework/cache`, `storage/framework/sessions`, `storage/framework/views` directories exist. Run `mkdir -p storage/framework/{sessions,views,cache}`
 * Run `composer install`
 * Run `php artisan key:generate`
 * Run `php artisan jwt:secret`

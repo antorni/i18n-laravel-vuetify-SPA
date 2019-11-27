@@ -97,9 +97,10 @@ export default {
     submit() {
       if (this.$refs.form.validate()) {
         this.loading = true
+        console.log(api.path('register'))
         axios.post(api.path('register'), this.form)
           .then(res => {
-            this.$toast.success('You have been successfully registered!')
+            this.$toast.success(this.$t('profile.registered'))
             this.$emit('success', res.data)
           })
           .catch(err => {

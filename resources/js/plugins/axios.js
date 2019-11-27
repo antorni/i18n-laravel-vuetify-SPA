@@ -25,6 +25,7 @@ axios.interceptors.response.use(response => {
     if (error.response.status === 401 && error.response.data.message === 'Token has expired') {
       const { data } = await axios.post(api.path('login.refresh'))
       store.dispatch('auth/saveToken', data)
+      error.response.data.message = app.$t('token.expired');
       return axios.request(error.config)
     }
 
@@ -34,12 +35,21 @@ axios.interceptors.response.use(response => {
         error.response.data.message === 'The token has been blacklisted'
       ))
     ) {
+
+      if(error.response.data.message === 'Token has expired and can no longer be refreshed'){
+        error.response.data.message = app.$t('token.expired_no_refresh');
+      }
+
+      if(error.response.data.message === 'The token has been blacklisted'){
+        error.response.data.message = app.$t('token.blacklisted');
+      }
+
       store.dispatch('auth/destroy')
       router.push({ name: 'login' })
     }
   }
 
-  error.response.data.message !== undefined && app.$toast.error(error.response.data.message || 'Something went wrong.')
-  error.response.data.error !== undefined && app.$toast.error(error.response.data.error || 'Error occurred.')
+  error.response.data.message !== undefined && app.$toast.error(error.response.data.message || app.$t('token.something_went_wrong'))
+  error.response.data.error !== undefined && app.$toast.error(error.response.data.error || app.$t('token.error'))
   return Promise.reject(error)
 })
