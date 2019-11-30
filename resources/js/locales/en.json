@@ -2,6 +2,7 @@
 	"common": {
 		"back_to_login": "Back to login",
 		"cancel": "Cancel",
+		"change_theme": "Lighten | Darken",
 		"edit": "Edit",
 		"email": "Email",
 		"forgot_password": "Forgot password?",
@@ -10,13 +11,16 @@
 		"login": "Login",
 		"logout": "Logout",
 		"name": "Name",
+		"no": "No",
 		"no_account": "Don't have an account? ",
 		"password": "Password",
 		"password_confirmation": "Password Confirmation",
 		"profile": "Profile",
 		"register": "Register",
 		"save": "Save",
-		"view": "View"
+		"test": "Test",
+		"view": "View",
+		"yes": "Yes"
 	},
 	"form": {
 		"validation": {

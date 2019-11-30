@@ -2,6 +2,7 @@
 	"common": {
 		"back_to_login": "Volver al inicio",
 		"cancel": "Cancelar",
+		"change_theme": "Iluminar | Oscurecer",
 		"edit": "Editar",
 		"email": "Correo Electrónico",
 		"forgot_password": "¿Olvidó su contraseña?",
@@ -10,13 +11,16 @@
 		"login": "Ingresar",
 		"logout": "Cerrar Sesión",
 		"name": "Nombre",
+		"no": "No",
 		"no_account": "¿No tiene una cuenta? ",
 		"password": "Contraseña",
 		"password_confirmation": "Confirmar Contraseña",
 		"profile": "Perfil",
 		"register": "Registrarse",
 		"save": "Guardar",
-		"view": "Ver"
+		"test": "Probar",
+		"view": "Ver",
+		"yes": "Sí"
 	},
 	"form": {
 		"validation": {
